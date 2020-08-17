@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FinanceDbModelStoreContainer" CdmEntityContainer="FinanceDbEntities">
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="FinanceDbModel.Account">
+        <MappingFragment StoreEntitySet="Accounts">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="PurchaseId" ColumnName="PurchaseId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Paid" ColumnName="Paid" />
+          <ScalarProperty Name="Balence" ColumnName="Balence" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdminUserDetailsMasters">
+      <EntityTypeMapping TypeName="FinanceDbModel.AdminUserDetailsMaster">
+        <MappingFragment StoreEntitySet="AdminUserDetailsMaster">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="DOJ" ColumnName="DOJ" />
+          <ScalarProperty Name="EduQualification" ColumnName="EduQualification" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CardDetails">
+      <EntityTypeMapping TypeName="FinanceDbModel.CardDetail">
+        <MappingFragment StoreEntitySet="CardDetails">
+          <ScalarProperty Name="CardNmber" ColumnName="CardNmber" />
+          <ScalarProperty Name="cvv" ColumnName="cvv" />
+          <ScalarProperty Name="CustId" ColumnName="CustId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ExpiraDate" ColumnName="ExpiraDate" />
+          <ScalarProperty Name="cardtype" ColumnName="cardtype" />
+          <ScalarProperty Name="balence" ColumnName="balence" />
+          <ScalarProperty Name="Satus" ColumnName="Satus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CardTypeMasters">
+      <EntityTypeMapping TypeName="FinanceDbModel.CardTypeMaster">
+        <MappingFragment StoreEntitySet="CardTypeMaster">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="limit" ColumnName="limit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerMasters">
+      <EntityTypeMapping TypeName="FinanceDbModel.CustomerMaster">
+        <MappingFragment StoreEntitySet="CustomerMaster">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="PhoneAlt" ColumnName="PhoneAlt" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Bank" ColumnName="Bank" />
+          <ScalarProperty Name="SavingsAccountNumber" ColumnName="SavingsAccountNumber" />
+          <ScalarProperty Name="IFSCCode" ColumnName="IFSCCode" />
+          <ScalarProperty Name="ques1" ColumnName="ques1" />
+          <ScalarProperty Name="ans1" ColumnName="ans1" />
+          <ScalarProperty Name="ques2" ColumnName="ques2" />
+          <ScalarProperty Name="ans2" ColumnName="ans2" />
+          <ScalarProperty Name="ques3" ColumnName="ques3" />
+          <ScalarProperty Name="ans3" ColumnName="ans3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerPurchasals">
+      <EntityTypeMapping TypeName="FinanceDbModel.CustomerPurchasal">
+        <MappingFragment StoreEntitySet="CustomerPurchasals">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+          <ScalarProperty Name="PayementPlan" ColumnName="PayementPlan" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="PuchaseDate" ColumnName="PuchaseDate" />
+          <ScalarProperty Name="BillAmount" ColumnName="BillAmount" />
+          <ScalarProperty Name="ProcessingFee" ColumnName="ProcessingFee" />
+          <ScalarProperty Name="NetAmount" ColumnName="NetAmount" />
+          <ScalarProperty Name="DownPayement" ColumnName="DownPayement" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="docMasters">
+      <EntityTypeMapping TypeName="FinanceDbModel.docMaster">
+        <MappingFragment StoreEntitySet="docMaster">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="data" ColumnName="data" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PayementPlans">
+      <EntityTypeMapping TypeName="FinanceDbModel.PayementPlan">
+        <MappingFragment StoreEntitySet="PayementPlan">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="data" ColumnName="data" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PayementSchedules">
+      <EntityTypeMapping TypeName="FinanceDbModel.PayementSchedule">
+        <MappingFragment StoreEntitySet="PayementSchedule">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="PurchasalId" ColumnName="PurchasalId" />
+          <ScalarProperty Name="payementDate" ColumnName="payementDate" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Paid" ColumnName="Paid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductLists">
+      <EntityTypeMapping TypeName="FinanceDbModel.ProductList">
+        <MappingFragment StoreEntitySet="ProductList">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductMasters">
+      <EntityTypeMapping TypeName="FinanceDbModel.ProductMaster">
+        <MappingFragment StoreEntitySet="ProductMaster">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="data" ColumnName="data" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userDocs">
+      <EntityTypeMapping TypeName="FinanceDbModel.userDoc">
+        <MappingFragment StoreEntitySet="userDocs">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="CustId" ColumnName="CustId" />
+          <ScalarProperty Name="docId" ColumnName="docId" />
+          <ScalarProperty Name="DocData" ColumnName="DocData" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="proc_GetAllDetails" FunctionName="FinanceDbModel.Store.proc_GetAllDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinanceDbModel.proc_GetAllDetails_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="PhoneAlt" ColumnName="PhoneAlt" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Bank" ColumnName="Bank" />
+          <ScalarProperty Name="SavingsAccountNumber" ColumnName="SavingsAccountNumber" />
+          <ScalarProperty Name="IFSCCode" ColumnName="IFSCCode" />
+          <ScalarProperty Name="ques1" ColumnName="ques1" />
+          <ScalarProperty Name="ans1" ColumnName="ans1" />
+          <ScalarProperty Name="ques2" ColumnName="ques2" />
+          <ScalarProperty Name="ans2" ColumnName="ans2" />
+          <ScalarProperty Name="ques3" ColumnName="ques3" />
+          <ScalarProperty Name="ans3" ColumnName="ans3" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="proc_UpdatePassword" FunctionName="FinanceDbModel.Store.proc_UpdatePassword" />
+  </EntityContainerMapping>
+</Mapping>

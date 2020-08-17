@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FinanceDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PurchaseId" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="Paid" Type="Int32" Nullable="false" />
+    <Property Name="Balence" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CustomerPurchasal" Relationship="Self.purchaseid" FromRole="Accounts" ToRole="CustomerPurchasals" />
+  </EntityType>
+  <EntityType Name="AdminUserDetailsMaster">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Firstname" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="UserName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="DOB" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="DOJ" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="EduQualification" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CardDetail">
+    <Key>
+      <PropertyRef Name="CardNmber" />
+    </Key>
+    <Property Name="CardNmber" Type="Int32" Nullable="false" />
+    <Property Name="cvv" Type="Int32" Nullable="false" />
+    <Property Name="CustId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ExpiraDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="cardtype" Type="Int32" Nullable="false" />
+    <Property Name="balence" Type="Int32" Nullable="false" />
+    <Property Name="Satus" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="CustomerPurchasals" Relationship="Self.CardId" FromRole="CardDetails" ToRole="CustomerPurchasals" />
+    <NavigationProperty Name="CardTypeMaster" Relationship="Self.cardtype" FromRole="CardDetails" ToRole="CardTypeMaster" />
+    <NavigationProperty Name="CustomerMaster" Relationship="Self.customer" FromRole="CardDetails" ToRole="CustomerMaster" />
+  </EntityType>
+  <EntityType Name="CardTypeMaster">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="data" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="limit" Type="Int32" />
+    <NavigationProperty Name="CardDetails" Relationship="Self.cardtype" FromRole="CardTypeMaster" ToRole="CardDetails" />
+  </EntityType>
+  <EntityType Name="CustomerMaster">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MiddleName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PhoneAlt" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Bank" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SavingsAccountNumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IFSCCode" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ques1" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ans1" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ques2" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ans2" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ques3" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ans3" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="CardDetails" Relationship="Self.customer" FromRole="CustomerMaster" ToRole="CardDetails" />
+    <NavigationProperty Name="userDocs" Relationship="Self.custid" FromRole="CustomerMaster" ToRole="userDocs" />
+  </EntityType>
+  <EntityType Name="CustomerPurchasal">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CardNumber" Type="Int32" Nullable="false" />
+    <Property Name="PayementPlan" Type="Int32" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="PuchaseDate" Type="DateTime" Precision="0" />
+    <Property Name="BillAmount" Type="Int32" />
+    <Property Name="ProcessingFee" Type="Int32" />
+    <Property Name="NetAmount" Type="Int32" />
+    <Property Name="DownPayement" Type="Int32" />
+    <NavigationProperty Name="Accounts" Relationship="Self.purchaseid" FromRole="CustomerPurchasals" ToRole="Accounts" />
+    <NavigationProperty Name="CardDetail" Relationship="Self.CardId" FromRole="CustomerPurchasals" ToRole="CardDetails" />
+    <NavigationProperty Name="PayementPlan1" Relationship="Self.payemntplan" FromRole="CustomerPurchasals" ToRole="PayementPlan" />
+    <NavigationProperty Name="ProductList" Relationship="Self.productid" FromRole="CustomerPurchasals" ToRole="ProductList" />
+    <NavigationProperty Name="PayementSchedules" Relationship="Self.purchasalid" FromRole="CustomerPurchasals" ToRole="PayementSchedule" />
+  </EntityType>
+  <EntityType Name="docMaster">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="Int32" Nullable="false" />
+    <Property Name="data" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="userDocs" Relationship="Self.docType" FromRole="docMaster" ToRole="userDocs" />
+  </EntityType>
+  <EntityType Name="PayementPlan">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Duration" Type="Int32" Nullable="false" />
+    <Property Name="data" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CustomerPurchasals" Relationship="Self.payemntplan" FromRole="PayementPlan" ToRole="CustomerPurchasals" />
+  </EntityType>
+  <EntityType Name="PayementSchedule">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PurchasalId" Type="Int32" Nullable="false" />
+    <Property Name="payementDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Amount" Type="Int32" Nullable="false" />
+    <Property Name="Paid" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="CustomerPurchasal" Relationship="Self.purchasalid" FromRole="PayementSchedule" ToRole="CustomerPurchasals" />
+  </EntityType>
+  <EntityType Name="ProductList">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeId" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Stock" Type="Int32" Nullable="false" />
+    <Property Name="UnitPrice" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CustomerPurchasals" Relationship="Self.productid" FromRole="ProductList" ToRole="CustomerPurchasals" />
+    <NavigationProperty Name="ProductMaster" Relationship="Self.pordmaster" FromRole="ProductList" ToRole="ProductMaster" />
+  </EntityType>
+  <EntityType Name="ProductMaster">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="data" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ProductLists" Relationship="Self.pordmaster" FromRole="ProductMaster" ToRole="ProductList" />
+  </EntityType>
+  <EntityType Name="userDoc">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustId" Type="Int32" Nullable="false" />
+    <Property Name="docId" Type="Int32" Nullable="false" />
+    <Property Name="DocData" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <NavigationProperty Name="CustomerMaster" Relationship="Self.custid" FromRole="userDocs" ToRole="CustomerMaster" />
+    <NavigationProperty Name="docMaster" Relationship="Self.docType" FromRole="userDocs" ToRole="docMaster" />
+  </EntityType>
+  <Association Name="purchaseid">
+    <End Role="CustomerPurchasals" Type="Self.CustomerPurchasal" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Accounts" Type="Self.Account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerPurchasals">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Accounts">
+        <PropertyRef Name="PurchaseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CardId">
+    <End Role="CardDetails" Type="Self.CardDetail" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CustomerPurchasals" Type="Self.CustomerPurchasal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CardDetails">
+        <PropertyRef Name="CardNmber" />
+      </Principal>
+      <Dependent Role="CustomerPurchasals">
+        <PropertyRef Name="CardNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="cardtype">
+    <End Role="CardTypeMaster" Type="Self.CardTypeMaster" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CardDetails" Type="Self.CardDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CardTypeMaster">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CardDetails">
+        <PropertyRef Name="cardtype" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="customer">
+    <End Role="CustomerMaster" Type="Self.CustomerMaster" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CardDetails" Type="Self.CardDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerMaster">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CardDetails">
+        <PropertyRef Name="CustId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="custid">
+    <End Role="CustomerMaster" Type="Self.CustomerMaster" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="userDocs" Type="Self.userDoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerMaster">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="userDocs">
+        <PropertyRef Name="CustId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="payemntplan">
+    <End Role="PayementPlan" Type="Self.PayementPlan" Multiplicity="0..1" />
+    <End Role="CustomerPurchasals" Type="Self.CustomerPurchasal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PayementPlan">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CustomerPurchasals">
+        <PropertyRef Name="PayementPlan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="productid">
+    <End Role="ProductList" Type="Self.ProductList" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CustomerPurchasals" Type="Self.CustomerPurchasal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductList">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CustomerPurchasals">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="purchasalid">
+    <End Role="CustomerPurchasals" Type="Self.CustomerPurchasal" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PayementSchedule" Type="Self.PayementSchedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerPurchasals">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PayementSchedule">
+        <PropertyRef Name="PurchasalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="docType">
+    <End Role="docMaster" Type="Self.docMaster" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="userDocs" Type="Self.userDoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="docMaster">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="userDocs">
+        <PropertyRef Name="docId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="pordmaster">
+    <End Role="ProductMaster" Type="Self.ProductMaster" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProductList" Type="Self.ProductList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductMaster">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ProductList">
+        <PropertyRef Name="TypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FinanceDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Accounts" EntityType="Self.Account" />
+    <EntitySet Name="AdminUserDetailsMasters" EntityType="Self.AdminUserDetailsMaster" />
+    <EntitySet Name="CardDetails" EntityType="Self.CardDetail" />
+    <EntitySet Name="CardTypeMasters" EntityType="Self.CardTypeMaster" />
+    <EntitySet Name="CustomerMasters" EntityType="Self.CustomerMaster" />
+    <EntitySet Name="CustomerPurchasals" EntityType="Self.CustomerPurchasal" />
+    <EntitySet Name="docMasters" EntityType="Self.docMaster" />
+    <EntitySet Name="PayementPlans" EntityType="Self.PayementPlan" />
+    <EntitySet Name="PayementSchedules" EntityType="Self.PayementSchedule" />
+    <EntitySet Name="ProductLists" EntityType="Self.ProductList" />
+    <EntitySet Name="ProductMasters" EntityType="Self.ProductMaster" />
+    <EntitySet Name="userDocs" EntityType="Self.userDoc" />
+    <AssociationSet Name="purchaseid" Association="Self.purchaseid">
+      <End Role="CustomerPurchasals" EntitySet="CustomerPurchasals" />
+      <End Role="Accounts" EntitySet="Accounts" />
+    </AssociationSet>
+    <AssociationSet Name="CardId" Association="Self.CardId">
+      <End Role="CardDetails" EntitySet="CardDetails" />
+      <End Role="CustomerPurchasals" EntitySet="CustomerPurchasals" />
+    </AssociationSet>
+    <AssociationSet Name="cardtype" Association="Self.cardtype">
+      <End Role="CardTypeMaster" EntitySet="CardTypeMasters" />
+      <End Role="CardDetails" EntitySet="CardDetails" />
+    </AssociationSet>
+    <AssociationSet Name="customer" Association="Self.customer">
+      <End Role="CustomerMaster" EntitySet="CustomerMasters" />
+      <End Role="CardDetails" EntitySet="CardDetails" />
+    </AssociationSet>
+    <AssociationSet Name="custid" Association="Self.custid">
+      <End Role="CustomerMaster" EntitySet="CustomerMasters" />
+      <End Role="userDocs" EntitySet="userDocs" />
+    </AssociationSet>
+    <AssociationSet Name="payemntplan" Association="Self.payemntplan">
+      <End Role="PayementPlan" EntitySet="PayementPlans" />
+      <End Role="CustomerPurchasals" EntitySet="CustomerPurchasals" />
+    </AssociationSet>
+    <AssociationSet Name="productid" Association="Self.productid">
+      <End Role="ProductList" EntitySet="ProductLists" />
+      <End Role="CustomerPurchasals" EntitySet="CustomerPurchasals" />
+    </AssociationSet>
+    <AssociationSet Name="purchasalid" Association="Self.purchasalid">
+      <End Role="CustomerPurchasals" EntitySet="CustomerPurchasals" />
+      <End Role="PayementSchedule" EntitySet="PayementSchedules" />
+    </AssociationSet>
+    <AssociationSet Name="docType" Association="Self.docType">
+      <End Role="docMaster" EntitySet="docMasters" />
+      <End Role="userDocs" EntitySet="userDocs" />
+    </AssociationSet>
+    <AssociationSet Name="pordmaster" Association="Self.pordmaster">
+      <End Role="ProductMaster" EntitySet="ProductMasters" />
+      <End Role="ProductList" EntitySet="ProductLists" />
+    </AssociationSet>
+    <FunctionImport Name="proc_GetAllDetails" ReturnType="Collection(FinanceDbModel.proc_GetAllDetails_Result)">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="ans1" Mode="In" Type="String" />
+      <Parameter Name="ans2" Mode="In" Type="String" />
+      <Parameter Name="ans3" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="proc_UpdatePassword">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="proc_GetAllDetails_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="45" />
+    <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="45" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="45" />
+    <Property Type="String" Name="Phone" Nullable="false" MaxLength="45" />
+    <Property Type="String" Name="PhoneAlt" Nullable="true" MaxLength="45" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="45" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="45" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="45" />
+    <Property Type="String" Name="Address" Nullable="false" MaxLength="45" />
+    <Property Type="String" Name="Bank" Nullable="false" MaxLength="45" />
+    <Property Type="String" Name="SavingsAccountNumber" Nullable="false" MaxLength="45" />
+    <Property Type="String" Name="IFSCCode" Nullable="false" MaxLength="45" />
+    <Property Type="String" Name="ques1" Nullable="false" MaxLength="45" />
+    <Property Type="String" Name="ans1" Nullable="false" MaxLength="45" />
+    <Property Type="String" Name="ques2" Nullable="false" MaxLength="45" />
+    <Property Type="String" Name="ans2" Nullable="false" MaxLength="45" />
+    <Property Type="String" Name="ques3" Nullable="false" MaxLength="45" />
+    <Property Type="String" Name="ans3" Nullable="false" MaxLength="45" />
+  </ComplexType>
+</Schema>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d502bd64e0504e11b87ecb3cfefab296" Name="Diagram1">
+        <EntityTypeShape EntityType="FinanceDbModel.Account" Width="1.5" PointX="10.5" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanceDbModel.AdminUserDetailsMaster" Width="1.5" PointX="0.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanceDbModel.CardDetail" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanceDbModel.CardTypeMaster" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanceDbModel.CustomerMaster" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanceDbModel.CustomerPurchasal" Width="1.5" PointX="8.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanceDbModel.docMaster" Width="1.5" PointX="3.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanceDbModel.PayementPlan" Width="1.5" PointX="6" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanceDbModel.PayementSchedule" Width="1.5" PointX="10.5" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanceDbModel.ProductList" Width="1.5" PointX="6" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanceDbModel.ProductMaster" Width="1.5" PointX="3.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanceDbModel.userDoc" Width="1.5" PointX="6" PointY="5.625" IsExpanded="true" />
+        <AssociationConnector Association="FinanceDbModel.purchaseid" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanceDbModel.CardId" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanceDbModel.cardtype" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanceDbModel.customer" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanceDbModel.custid" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanceDbModel.payemntplan" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanceDbModel.productid" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanceDbModel.purchasalid" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanceDbModel.docType" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanceDbModel.pordmaster" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
